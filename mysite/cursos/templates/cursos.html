@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+
+{% block 'conteudo'%}
+    <br>
+    <h2>Cursos e Palestras disponíveis: </h2>
+    <br>
+    <p>
+      
+    </p>
+    <div class="cursosContainer">
+      
+        {% for cursoslistados in cursoslistados %}
+     
+        <div class="row-md">
+          <div class="card" style="width: 16rem; font-weight: bold">
+            <div class="card-body bg-dark">
+              <h5 class="card-title">{{cursoslistados.nome_curso}}</h5>
+              <h6 class="card-text mb-2 ">{{cursoslistados.professor}}</h6>
+              <p class="card-text">{{cursoslistados.data_curso}}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <br>
+      {% comment %} <a href="#" class="btn btn-success">Inscreva-se em um dos cursos</a> {% endcomment %}
+      <br>
+    </div>
+    <div class="cursosForm">
+      <div class="form-group">
+        
+        <form id="form_inscrever" action="{% url 'inscrever_curso' %}" method="POST">{% csrf_token %}
+          <select class="form-control" name="user">
+            {% for usuario in usuarios %}    
+              <option value='{{usuario.id}}'>{{usuario.nome}}</option>
+            {% endfor %}
+          </select>
+        <br>
+          <select class="form-control" name="curso">
+          {% for cursoslistados in cursoslistados %}    
+            <option value='{{cursoslistados.id}}'>{{cursoslistados.nome_curso}}</option>
+          {% endfor %}
+          </select>
+            <select class="form-control" name="opcoes">
+              <option value='P'>Péssimo</option>
+              <option value='R'>Ruim</option>
+              <option value='B'>Bom</option>
+              <option value='O'>Ótimo</option>
+            </select>
+          <textarea name="comentario" rows="2" cols="30" placeholder="Digite um breve comentário">
+            
+          </textarea>
+          <br>
+          
+                    
+        </div>
+          <input type="submit" value="Inscrever-se" class="btn btn-info btnMargin">
+        </form>
+        <a href="{% url 'inscricoes' %}" class="btn btn-info btnsub btnMargin">Suas Inscrições</a>
+      </div>
+        
+      
+     
+
+{% endblock 'conteudo'%}

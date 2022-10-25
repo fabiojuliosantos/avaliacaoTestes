@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+body {
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.background {
+    background-color: white;
+    color: black;
+}
+
+.bg-hr {
+    background-color: white;
+}
+
+.cursosContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+
+}
+
+.card {
+    display: flex;
+    font-weight: bold;
+    justify-content: space-between;
+    width: 100%
+}
+
+.cursosForm{
+    margin-left: 30rem;
+    margin-right: 30rem;
+    justify-items: center;
+}
+
+.form_inscrever {
+    display: flex
+}
